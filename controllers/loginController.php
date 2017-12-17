@@ -54,11 +54,11 @@ class loginController extends Controller
 
 			Session::set('authentication', true);
 			Session::set('level', $row['rol']);
-			Session::set('user', $row['user']);
-			Session::set('id_user', $row['id_user']);
-			Session::set('id_institucion', $row['id_client']);
+			Session::set('mb_user', $row['user']);
+			Session::set('mb_id_user', $row['id_user']);
+			Session::set('mb_id_client', $row['id_client']);
 			Session::set('time', time());
-			Session::set('token', md5('ec_planificador2229*'));
+			Session::set('token', md5('Macbot7836*!<<j'));
 
 			$this->redirect('index');
 
