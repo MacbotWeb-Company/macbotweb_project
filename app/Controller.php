@@ -411,6 +411,16 @@ abstract class Controller
 		$clave = "[" . $clave . "]";
 		return $clave;	
 	}
+
+	protected function printVarDump($clave)
+	{
+		echo "<pre>";
+		var_dump($clave);
+		echo "</pre>";
+		//return $clave;	
+	}
+
+
 }
 
 ?>
