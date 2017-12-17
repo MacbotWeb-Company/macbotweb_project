@@ -25,19 +25,13 @@ class setting_usersModel extends Model
 				    mb_rol r
 				WHERE
 				    u.id_user = ur.id_user
-				        AND ur.id_rol = r.id_rol
-				        AND ur.id_client = :id_client
-				        ; ";
-		//$stmt = $this->_db->query($sql);
-		$stmt = $this->_db->prepare($sql);
-		$stmt->bindValue(':id_client', $id_client);
-		$stmt->execute();
-		$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		//$data->fetchAll(PDO::FETCH_ASSOC);
-		/* $this->_db->query($sql);
+				    AND ur.id_rol = r.id_rol
+				    AND ur.id_client = :id_client; ";
+
+		 $this->_db->query($sql);
 		 $this->_db->bind('id_client', $id_client);
 		 $this->_db->execute();
-		 $data =  $this->_db->resultset();*/
+		 $data =  $this->_db->resultset();
 
 		return $data;
 	}
