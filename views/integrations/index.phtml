@@ -1,0 +1,200 @@
+<!--<style>
+li.single-option svg {
+    height: 70px;
+    margin-bottom: 15px;
+    width: auto;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+li.single-option {
+    padding: 30px 15px;
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    text-align: center;
+    list-style: none;
+    height: 204px;
+    font-size: 13px;
+    color: #777777;
+    line-height: 24px;
+}
+li.single-option h3 {
+    font-size: 18px !important;
+    color: #292929 !important;
+    font-weight: 400 !important;
+    padding-bottom: 10px;
+    display: block;
+}
+.registry_heading {
+    border-bottom: 1px solid #E3E3E3;
+    color: #444444;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+.hover_integrations_apps:hover{
+	background-color: #f1f2f7;
+}
+</style>
+<div class="col-md-12">
+    <section class="panel">
+        <div class="panel-body invoice">
+            
+             <h3>Integrations APIS</h3>
+            
+        </div>
+        
+        
+        
+        <div class="panel_big_holder">
+            <div class="panel_big">
+                <div class="panel_phrases">
+                    <div class="panel_monitered_keywords">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tbody><tr>
+                                <td valign="top">
+                                    <div class="panel_set" style="min-height:600px">
+                                        <div class="panel_table">
+                                            <div class="registry_form_user">
+                                                <ul class="row" style="width: 100%;">
+                                                    <?php foreach($this->data_app as $val_app):?>
+                                                    <a href="<?php echo $val_app['url']; ?>">
+                                                        <li class="col-xs-4 col-md-4 col-lg-3 single-option hover_integrations_apps">
+                                                            <img src="<?php echo  $_layoutParams['root_img'];?>app_integrations/<?php echo $val_app['logo']; ?>" alt="">
+                                                            <h3><?php echo $val_app['name']; ?></h3>
+                                                            <p><?php echo $val_app['legend1']; ?></p>
+                                                        </li>
+                                                    </a>
+                                                    <?php endforeach;?>                                      
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        PANEL INSIDE ENDS
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                	</div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</div>-->
+
+
+<style type="text/css">
+.panel-mb {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+
+}
+.weather-box{
+    box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.weather-box .symbol {
+    padding: 22px 0px;
+    width: 40%;
+    float: left;
+    text-align: center;
+}
+.weather-box .value {
+    float: right;
+    width: 60%;
+    text-align: left;
+    padding: 14px 0;
+    font-size: 14px;
+    color: #767676;
+}
+.span_inte_logo{
+    font-size: 12px;
+    color: #bdbdbd;
+}
+.title-integration{
+    margin-left: 8px;
+    font-weight: 600;
+}
+.title_label_apis{
+    font-size: 15px;
+    color: #292929;
+}
+
+
+</style>
+
+<?php if(count($this->data_analytics_app) > 0): ?>
+<h4 class="title-integration">Analytics</h4>
+<div class="row">
+<?php foreach($this->data_analytics_app as $val_app):?>
+    <div class="col-md-4">
+        <a href="<?php echo $val_app['url']; ?>">
+            <section class="panel-mb weather-box">
+                <div class="symbol">
+                    <img src="<?php echo  $_layoutParams['root_img'];?>app_integrations/<?php echo $val_app['logo']; ?>" alt="" width="73px" height="73px">
+                </div>
+                <div class="value">
+                    <h4 class="title_label_apis"><?php echo $val_app['name']; ?></h4>
+                    <span class="span_inte_logo"><?php echo $val_app['legend1']; ?></span>
+                    <br>
+                    <i class="fa fa-star-o"></i>
+                </div>
+            </section>
+        </a>
+    </div>
+<?php endforeach;?>
+</div>
+<?php endif;?>
+
+<?php if(count($this->data_social_app) > 0): ?>
+<h4 class="title-integration">Social</h4>
+<div class="row">
+<?php foreach($this->data_social_app as $val_app):?>
+    <div class="col-md-4">
+        <a href="<?php echo $val_app['url']; ?>">
+            <section class="panel-mb weather-box">
+                <div class="symbol">
+                    <img src="<?php echo  $_layoutParams['root_img'];?>app_integrations/<?php echo $val_app['logo']; ?>" alt="" width="73px" height="73px">
+                </div>
+                <div class="value">
+                    <h4 class="title_label_apis"><?php echo $val_app['name']; ?></h4>
+                    <span class="span_inte_logo"><?php echo $val_app['legend1']; ?></span>
+                    <br>
+                    <i class="fa fa-star-o"></i>
+                </div>
+            </section>
+        </a>
+    </div>
+<?php endforeach;?>  
+</div>
+<?php endif;?>
+
+<?php if(count($this->data_seo_app) > 0): ?>
+<h4 class="title-integration">SEO</h4>
+<div class="row">
+<?php foreach($this->data_seo_app as $val_app):?>
+    <div class="col-md-4">
+        <a href="<?php echo $val_app['url']; ?>">
+            <section class="panel-mb weather-box">
+                <div class="symbol">
+                    <img src="<?php echo  $_layoutParams['root_img'];?>app_integrations/<?php echo $val_app['logo']; ?>" alt="" width="73px" height="73px">
+                </div>
+                <div class="value">
+                    <h4 class="title_label_apis"><?php echo $val_app['name']; ?></h4>
+                    <span class="span_inte_logo"><?php echo $val_app['legend1']; ?></span>
+                    <br>
+                    <i class="fa fa-star-o"></i>
+                </div>
+            </section>
+        </a> 
+    </div>
+<?php endforeach;?>
+</div> 
+<?php endif;?> 

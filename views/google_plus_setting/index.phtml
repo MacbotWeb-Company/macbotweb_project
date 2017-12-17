@@ -1,0 +1,88 @@
+<style>
+
+.text_gplus{
+   font-size: 30px;
+   color: #333;
+}
+.int_gplus{
+   font-size: 30px;
+    color: #333;
+}
+
+.fix_icon_gplus{
+	font-size: 50px !important;
+
+}
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="feed-box">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="corner-ribon red-ribon">
+                        <i class="fa fa-google-plus"></i>
+                    </div>
+                    <div class="text-center">
+                        <a href="#">
+                            <img alt="" class="img-circle" width="100" src="<?php echo $this->dataprofile[0]['img']; ?>">
+                        </a>
+                        <h1><img alt="" src="<?php echo  $_layoutParams['root_img'];?>app_integrations/google-plus-log1.png"></h1>
+                        <p>
+                        <div style="font-size:19px"><?php echo $this->dataprofile[0]['displayName']; ?> 
+                        	<a href="#"><span class="fa fa-external-link" style="cursor: pointer; font-size:16px"></span></a>
+                            <?php if($this->btn_add_display): ?>
+                            <a href="<?php echo BASE_URL; ?>google_plus_setting/add"><i class="fa fa-plus" style="font-size:16px" aria-hidden="true"></i></a>
+                            <?php else: ?>
+                            <a href="<?php echo BASE_URL; ?>google_plus_setting/edit"><i class="fa fa-pencil" style="font-size:16px" aria-hidden="true"></i></a>
+                            <a href="<h3></h3>"><i class="fa fa-trash-o" style="font-size:16px" aria-hidden="true"></i></a>
+                            <?php endif; ?>
+                        </div>
+                        	
+                        	
+                        </p>
+                        <p><?php echo $this->dataprofile[0]['tagline']; ?></p>
+                        <div class="panel-body">
+                            <div class="row weather-full-info">
+                                <!--<div class="col-md-3 today-status">
+                                    <!--<h1>JUAN JOSE CONSTANTINE</h1>-->
+                                    <!--<img alt="" src="<?php echo  $_layoutParams['root_img'];?>app_integrations/google-plus-log1.png">
+                                    <!--<div class="degree">19</div>-->
+                                <!--</div>-->
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <h2 class="text_gplus">Followers</h2>
+                                            <i class="fa fa-users text-primary fix_icon_gplus"></i>
+                                            <div class="int_gplus"><?php echo number_format((float)$this->dataprofile[0]['circledByCount'], 0, ',', ''); ?></div>
+                                        </li>
+                                        <li>
+                                            <h2 class="text_gplus">Post</h2>
+                                            <i class="fa fa-pencil-square-o text-danger fix_icon_gplus"></i>
+                                            <div class="int_gplus"><?php if(isset($this->dataprofile[0]['total_public_post'])) echo $this->dataprofile[0]['total_public_post']; else echo 0; ?></div>
+                                        </li>
+                                        <li>
+                                            <h2 class="text_gplus">Your Reach</h2>
+                                            <i class="fa fa-share-square text-info fix_icon_gplus"></i>
+                                            <div class="int_gplus"><?php if(isset($this->dataprofile[0]['total_plusoners'])) echo $this->dataprofile[0]['total_plusoners']; else echo 0;  ?></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+     	</div>
+    </div>                  
+</div>
+
+
+
+
+
+
+
+
+
+
+

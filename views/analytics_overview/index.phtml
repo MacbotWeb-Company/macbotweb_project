@@ -1,0 +1,151 @@
+	<script>
+        $(document).ready(function() {
+          chartBarchartLeads = new Highcharts.Chart({
+                    chart: {
+                        backgroundColor: '#FFFFFF',
+                        renderTo: 'container1233',
+                        type: 'area'
+                        
+                    },
+        
+            title: {
+                text: 'Fruit consumption *'
+            },
+            subtitle: {
+                text: '',
+                floating: true,
+                align: 'right',
+                verticalAlign: 'bottom',
+                y: 15
+            },
+			legend: {
+				margin: 50,
+				border: 0, 
+				borderRadius: 0, 
+				borderWidth: 0
+			},
+            xAxis: {
+                categories: ['Apples', 'Pears', 'Oranges', 'Bananas', 'Grapes', 'Plums', 'Strawberries', 'Raspberries']
+            },
+            yAxis: {
+                title: {
+                    text: 'Y-Axis'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        this.x + ': ' + this.y;
+                }
+            },
+            plotOptions: {
+                area: {
+                    fillOpacity: 0.5
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'John',
+                data: [0, 1, 4, 4, 5, 2, 3, 7]
+            }]
+        });
+    
+        
+        });
+    
+    </script>
+
+<div class="row">
+  <div class="col-md-8">
+    <!--tab nav start-->
+    <section class="panel">
+        <header class="panel-heading">
+            Analytics Overview <span class="tools pull-right">
+        <a href="javascript:;" class="fa fa-chevron-down"></a>
+        <a href="javascript:;" class="fa fa-cog"></a>
+        <a href="javascript:;" class="fa fa-times"></a>
+        </span>
+        </header>
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#home" class="panel_analytics_cabecera" style="color: #898989 !important;">USERS
+                      <p>
+                        <span class="panel_analytics_overview">99</span>
+                        <i class="fa fa-arrow-up" style="font-size:9px;"></i>
+                        15%
+                      </p>
+                    </a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#about" class="panel_analytics_cabecera" style="color: #898989 !important;">SESSIONS
+                      <p>
+                        <span class="panel_analytics_overview">88</span>
+                        <i class="fa fa-arrow-up"></i> 1%
+                      </p>
+                    </a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#profile" class="panel_analytics_cabecera" style="color: #898989 !important;">PAGE / VISITS
+                      <p>
+                        <span class="panel_analytics_overview">10.65</span>
+                        <i class="fa fa-arrow-up"></i> 40%
+                      </p>
+                    </a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#contact" class="panel_analytics_cabecera" style="color: #898989 !important;">AVG. VISITS DURATION
+                      <p>
+                        <span class="panel_analytics_overview">00:09:18</span>
+                        <i class="fa fa-arrow-up"></i> 40%
+                      </p>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div id="home" class="tab-pane active">
+                    <div id="container1233"  style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    
+                                    <div class="region-stats">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="region-earning-stats">
+                                This year total earning <span>$68,4545,454</span>
+                            </div>
+                            <ul class="clearfix location-earning-stats">
+                                <li class="stat-divider">
+                                    <span class="first-city">$734503</span>
+                                    Rocky Mt,NC </li>
+                                <li class="stat-divider">
+                                    <span class="second-city">$734503</span>
+                                    Dallas/FW,TX </li>
+                                <li>
+                                    <span class="third-city">$734503</span>
+                                    Millville,NJ </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5">
+                            <div id="world-map" class="vector-stat">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div id="about" class="tab-pane">About</div>
+                <div id="profile" class="tab-pane">Profile</div>
+                <div id="contact" class="tab-pane">Contact</div>
+            </div>
+        </div>
+    </section>
+  </div>
+  <!--tab nav start-->
+</div>

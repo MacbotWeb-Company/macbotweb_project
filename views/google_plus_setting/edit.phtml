@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="feed-box">
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="corner-ribon red-ribon">
+                        <i class="fa fa-google-plus"></i>
+                    </div>
+                    <div class="text-center">
+                        <a href="#">
+                            <img alt="" src="<?php echo  $_layoutParams['root_img'];?>app_integrations/googleplus_inte.png">
+                        </a>
+                        <h1>Google Plus</h1>
+                        <p>MacBot needs permissions to access your information</p>
+
+                    </div>
+                    
+                    <div class="position-center">
+                        <form role="form" action="<?php echo BASE_URL . 'google_plus_setting/add'; ?>" method="post">
+                            <input type="hidden" name="saved_gp" value="1" />
+                            <div class="form-group">
+                                <label for="gp_name">GIVE YOUR SOURCE A NAME</label>
+                                <input type="text" class="form-control" name="google_plus_name" id="google_plus_name" placeholder="Name" value="<?php if(isset($this->data_credentials['google_plus_name'])) echo $this->data_credentials['google_plus_name'];?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="gp_provider_id">PROVIDER KEY</label>
+                                <input type="text" class="form-control" name="google_plus_provider_id" id="google_plus_provider_id" placeholder="provider key" value="<?php if(isset($this->data_credentials['google_plus_provider_id'])) echo $this->data_credentials['google_plus_provider_id']; ?>">
+                            </div>
+                            <div class="text-center">
+                            	<a class="btn btn-warning bt_cancel" href="<?php echo BASE_URL?>google_plus_setting">CANCEL</a>
+                                <input type="submit" class="btn btn-info" value="UPDATE" >
+                            </>
+                        </form>
+                    
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-8">
+                            <section class="panel">
+                                <div class="wdgt-row">
+                                	<img src="<?php echo  $_layoutParams['root_img'];?>app_integrations_tooltip/google3.svg" alt="">
+                                    <div class="wdt-head">
+                                    weather forecast
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                    </div>
+                </div>
+            </section>
+     	</div>
+    </div>                  
+</div>

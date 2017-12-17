@@ -1,0 +1,372 @@
+
+    <script>
+
+    $(document).ready(function() {
+
+        var follower_value      = <?php echo $this->followers['value'];  ?>;
+        var follower_maxvalue   = <?php echo $this->followers['maxvalue'];  ?>;
+
+        var returning_visits = {'Replies': '89',
+                  'Plusoners': '89', 'Resharers': '89'
+                  };
+
+        addGauge(follower_value,follower_maxvalue);
+        AddDataTable('table_observaciones',10);
+        var chartBarchartLeads = new Highcharts.Chart({
+            chart: {
+                backgroundColor: '#FFFFFF',
+                renderTo: 'container1233',
+                type: 'column'
+                
+            },
+            title: {
+                text: 'Google+ Post'
+            },
+            subtitle: {
+                text: '',
+                floating: true,
+                align: 'right',
+                verticalAlign: 'bottom',
+                y: 15
+            },
+			legend: {
+				margin: 50,
+				border: 0, 
+				borderRadius: 0, 
+				borderWidth: 0
+			},
+            xAxis: {
+                categories: [<?php echo $this->datagraph['months']; ?>]
+            },
+            yAxis: {
+                title: {
+                    text: 'Y-Axis'
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        this.x + ': ' + this.y;
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 1940,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            series: [
+			{
+                name: 'Post',
+                data: [<?php if(isset($this->datagraph['total_public_post']))  echo $this->datagraph['total_public_post'] ; ?>]
+            },
+			{
+                name: 'Replies',
+                data: [<?php if(isset($this->datagraph['total_replies'])) echo $this->datagraph['total_replies']; ?>]
+            },
+			{
+             	name: 'Plusoners',
+                data: [<?php if(isset($this->datagraph['total_plusoners'])) echo $this->datagraph['total_plusoners']; ?>]
+            },
+			{
+                name: 'Resharers',
+                data: [<?php if(isset($this->datagraph['total_resharers'])) echo $this->datagraph['total_resharers']; ?>]
+            }]
+        });
+	
+    	// Build the chart
+        var chart_distributions = new Highcharts.Chart({
+            chart: {
+                backgroundColor: '#FFFFFF',
+                renderTo: 'pie-google-dist',
+                type: 'pie'
+				
+                
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage) +'%<br>Public Post: '+ <?php echo $this->datasum['total_public_post']; ?>;
+                },
+                shadow: false,
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{  
+                data: [{
+                    name: 'Replies',
+                    y: <?php echo $this->datasum['total_replies']; ?>,
+                    color: '#D6D23A'
+                }, {
+                    name: 'Plusoners',
+                    y: <?php echo $this->datasum['total_plusoners']; ?>,
+                    color: '#32D2C9'
+                }, {
+                    name: 'Resharers',
+                    y: <?php echo $this->datasum['total_resharers']; ?>,
+                    color: '#A049AB'
+                }]
+            }]
+        });    
+    });
+    
+    </script>
+
+
+
+<div class="col-md-12">
+    <section class="panel maincenter_panel">
+        <div class="panel_header_top">   
+            <div class="row" style="margin-top: -14px;">
+                <div class="col-md-12-title_menu_calendar">
+                    <div class="col-md-8">
+                        <h5 class="title_header_top"><?php if(isset($this->page_title))  echo $this->page_title; ?></h5>
+                        <div class="mini-stat-logo-text">
+                            <span class="mini-stat-icon-logo-text"><img src="<?php echo $this->dataprofile['img']; ?>" style="width: 30px;" /></span>
+                            <div class="mini-stat-info-logo-text">
+                                <span><?php echo $this->dataprofile['displayName']; ?></span>
+                                <?php echo $this->dataprofile['tagline']; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <form name="form1" method="post" action="" data-toggle="md-validator">
+        			<input type="hidden" value="1" name="send_calendar">
+                    <div class="col-md-3">
+                       <div class="input-group date form_datetime-component" style="margin-top: 20px;">
+                            <input type="text" class="form-control" name="democalendar" id="democalendar"  size="16">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary date-set"><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                       <div class="input-group" style="margin-top: 20px;">
+                            <span class="input-group-btn">
+                                <!--<input type="submit" class="btn btn-primary" value=" APPLY " style="width:100%">-->
+                                <button class="btn btn-primary" style="width:100%" type="submit">APPLY</button>
+                            </span>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>	 
+        </div>           
+    
+        <section class="panel">
+            <header class="panel-heading tab-bg-dark-navy-blue ">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#home" aria-expanded="true">Overview</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#about" aria-expanded="false">Report</a>
+                    </li>
+                </ul>
+            </header>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div id="home" class="tab-pane active">
+                        <div class="row">
+                        	<div class="col-md-3">
+                          		<section class="panel">
+                                        <div class="panel-body">
+                                            <ul class="clearfix prospective-spark-bar">
+                                                <li class="pull-left spark-bar-label">
+                                                    <span class="bar-label-value"><?php if(isset($this->datasum['total_public_post'])) { echo $this->datasum['total_public_post']; } else { echo '0';} ?></span>
+                                                    <span style="font-size: 11px;">PUBLIC POST</span>
+                                                </li>
+                                                <li class="pull-right">
+                                                    <div class="sparkline" data-type="bar" data-resize="true" data-height="40" data-width="100%" data-bar-color="#f6b0ae" data-bar-width="5" data-data="<?php echo $this->lastdData['total_public_post']; ?>"><canvas width="200" height="40" style="display: inline-block; width: 131px; height: 40px; vertical-align: top;"></canvas></div>
+                                                    <span class="span_legend">THIS WEEK</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </section>
+                          	</div>
+                            <div class="col-md-3">
+                          		<section class="panel">
+                                        <div class="panel-body">
+                                            <ul class="clearfix prospective-spark-bar">
+                                                <li class="pull-left spark-bar-label">
+                                                    <span class="bar-label-value"><?php if(isset($this->datasum['total_replies'])){ echo $this->datasum['total_replies']; } else { echo 0;} ?></span>
+                                                    <span style="font-size: 11px;">REPLIES</span>
+                                                </li>
+                                                <li class="pull-right">
+                                                    <div class="sparkline" data-type="bar" data-resize="true" data-height="40" data-width="90%" data-bar-color="#f6b0ae" data-bar-width="5" data-data="<?php echo $this->lastdData['total_replies']; ?>"><canvas width="131" height="40" style="display: inline-block; width: 131px; height: 40px; vertical-align: top;"></canvas></div>
+                                                    <span class="span_legend">THIS WEEK</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </section>
+                          	</div>
+                            <div class="col-md-3">
+                          		<section class="panel">
+                                        <div class="panel-body">
+                                            <ul class="clearfix prospective-spark-bar">
+                                                <li class="pull-left spark-bar-label">
+                                                    <span class="bar-label-value"><?php if(isset($this->datasum['total_plusoners'])) { echo $this->datasum['total_plusoners']; } else { echo 0; } ?></span>
+                                                    <span style="font-size: 11px;">PLUSONERS</span>
+                                                </li>
+                                                <li class="pull-right">
+                                                    <div class="sparkline" data-type="bar" data-resize="true" data-height="40" data-width="90%" data-bar-color="#f6b0ae" data-bar-width="5" data-data="<?php echo $this->lastdData['total_plusoners']; ?>"><canvas width="131" height="40" style="display: inline-block; width: 131px; height: 40px; vertical-align: top;"></canvas></div>
+                                                    <span class="span_legend">THIS WEEK</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </section>
+                          	</div>
+                            <div class="col-md-3">
+                          		<section class="panel">
+                                        <div class="panel-body">
+                                            <ul class="clearfix prospective-spark-bar">
+                                                <li class="pull-left spark-bar-label">
+                                                    <span class="bar-label-value"><?php if(isset($this->datasum['total_resharers'])) { echo $this->datasum['total_resharers']; } else { echo 0; } ?></span>
+                                                    <span style="font-size: 11px;">RESHARERS</span>
+                                                </li>
+                                                <li class="pull-right">
+                                                    <div class="sparkline" data-type="bar" data-resize="true" data-height="40" data-width="90%" data-bar-color="#f6b0ae" data-bar-width="5" data-data="<?php echo $this->lastdData['total_resharers']; ?>"><canvas width="131" height="40" style="display: inline-block; width: 131px; height: 40px; vertical-align: top;"></canvas></div>
+                                                    <span class="span_legend">THIS WEEK</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </section>
+                          	</div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-md-8">
+                            <!--tab nav start-->
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    GOOGLE+ POST Overview 
+                                <span class="tools pull-right">
+                                    <?php echo $this->widgetmonthGraph; ?>
+                                </span>
+                                </header>
+                        
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div id="container1233" style="width: auto; height: 470px; margin: 0 auto; max-width: 700px;" ></div>           
+                                    </div>
+                                </div>
+                            </section>
+                          </div>
+                          
+                          <div class="col-md-4">
+                             <section class="panel">
+                                <div class="panel-body">
+                                    <div class="top-stats-panel">
+                                        <div class="gauge-canvas">
+                                            <h4 class="widget-h"><?php echo $this->dataprofile['displayName']; ?></h4>
+                                            <canvas width=160 height=100 id="gauge"></canvas>
+                                        </div>
+                                        <ul class="gauge-meta clearfix">
+                                            <li id="gauge-textfield" class="pull-left gauge-value"></li>
+                                            <li class="pull-right gauge-title">Followers</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    GOOGLE+ DISTRIBUTION
+                                <span class="tools pull-right">
+                                    <?php echo $this->widgetmonth; ?>
+                                </span>
+                                </header>
+                                <div class="panel-body"> 
+                                    <div id="pie-google-dist" class="pie-chart" style="width: auto; height: 250px; margin: 0 auto;"></div>
+                                </div>
+                            </section>    
+                          </div>
+                          
+                        </div>
+                    </div>
+                    
+                    <div id="about" class="tab-pane">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        POST LIST
+                                        <span class="tools pull-right">
+                                            <?php echo $this->widgetmonth; ?>
+                                         </span>
+                                    </header>
+                                    <div class="panel-body">
+                                    <div class="adv-table">
+                                    <table  class="display table table-bordered table-striped" id="table_observaciones">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 180px;">Publish Date</th>
+                                        <th style="width: 420px;">Title</th>
+                                        <th style="width: 100px;">Type</th>
+                                        <th style="width: 100px;" class="hidden-phone">Plus One</th>
+                                        <th style="width: 100px;"class="hidden-phone">Replies</th>
+                                        <th style="width: 100px;" class="hidden-phone">Reshares</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php if(isset($this->datapostlist) && is_array($this->datapostlist)):?>
+									<?php foreach($this->datapostlist as $postlist1): ?>
+                                    <?php if(isset($postlist1) && is_array($postlist1)):?>
+                                    <?php foreach($postlist1 as $postlist): ?>
+                                    <tr class="gradeA">
+                                        <td><?php echo $postlist['published'];?></td>
+                                        <td><a href="<?php echo $postlist['url'];?>" target="_blank"><?php echo $postlist['title'];?></a></td>
+                                        <td class="text-center"><?php echo $postlist['type'];?></td>
+                                        <td class="text-center hidden-phone"><?php echo $postlist['total_plusoners'];?></td>
+                                        <td class="text-center hidden-phone"><?php echo $postlist['total_replies'];?></td>
+                                        <td class="text-center hidden-phone"><?php echo $postlist['total_resharers'];?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    <?php endforeach; ?>
+									<?php endif; ?>
+                                    
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </section>
+</div>   
+    
+
+       
+

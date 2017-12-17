@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>     
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>404</title>
+
+        <!-- STYLESHEETS -->
+        <style type="text/css">
+            [fuse-cloak],
+            .fuse-cloak {
+                display: none !important;
+            }
+        </style>
+        <!-- Icons.css -->
+        <link type="text/css" rel="stylesheet" href="<?php echo $_layoutParams['root_css']; ?>icons/fuse-icon-font/style.css">
+        <!-- Animate.css -->
+        <link type="text/css" rel="stylesheet" href="<?php echo $_layoutParams['root_css']; ?>animate.css/animate.min.css">
+        <!-- PNotify -->
+        <link type="text/css" rel="stylesheet" href="<?php echo $_layoutParams['root_css']; ?>pnotify/pnotify.custom.min.css">
+        <!-- Fuse Html -->
+        <link type="text/css" rel="stylesheet" href="<?php echo $_layoutParams['root_css']; ?>fuse-html/fuse-html.min.css"/>
+        <!-- Main CSS -->
+        <link type="text/css" rel="stylesheet" href="<?php echo $_layoutParams['root_css']; ?>main.css">
+        <!-- / STYLESHEETS -->
+    </head>
+    <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
+      <div id="wrapper">
+        <div class="content-wrapper">
+        <div class="content">
+          <div id="error-404" class="d-flex flex-column align-items-center justify-content-center">
+            <div class="content">
+              <div class="error-code display-1 text-center">404</div>
+                <div class="message h4 text-center text-muted"><?php if($this->message) echo $this->message; ?></div>
+                  <div class="search md-elevation-1 row no-gutters align-items-center mt-12 mb-4 bg-white text-auto">
+                    <i class="col-auto icon-magnify s-6 mx-4"></i>
+                    <input class="col" type="text" placeholder="Search for anything">
+                  </div>
+                  <a class="back-link d-block text-center text-primary" href="<?php echo BASE_URL . 'index'; ?>">Go back to dashboard</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
