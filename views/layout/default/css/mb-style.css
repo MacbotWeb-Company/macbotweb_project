@@ -1,0 +1,97 @@
+.fixed-bg-nav{
+	background: rgba(0,0,0,.12);
+	font-weight: bold;
+	color: #FFF !important;
+
+}
+.fixed-subheader-nav{
+	color: hsla(0,0%,100%,.5)!important;
+	
+    padding-left: 24px;
+    margin-top: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.mb-header-title{
+	color: rgba(0, 0, 0, 0.54)!important;
+	font-weight: 500;
+}
+.mb-header-icon{
+	color: rgba(0, 0, 0, 0.54)!important;
+	font-weight: 500;
+}
+
+.btn-default{
+	background-color: 
+	position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #bdbdbd;
+    outline: 0;
+    height: 5rem;
+    line-height: 3rem;
+    width: 100% !important;
+    padding: 4px;
+    display: block;
+}
+.fix-label-header{
+	position: absolute;
+    top: -14px;
+    font-size: .8rem;
+}
+
+.btn-group, .bootstrap-select{
+        box-shadow: 0 0px 0px 0px rgba(0,0,0,.2) , 0 0px 0px 0 rgba(0,0,0,.14), 0 0px 0px 0 rgba(0,0,0,.12) !important;
+}
+
+.mb-h3-title{
+    font-size: 1.0rem;
+    font-family: 'Roboto', sans-serif;
+}
+.mb-title-website span{
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-weight: 600;
+    margin-left: 3em;
+    margin-right: 1em;
+    text-transform: none;
+}
+
+.mb_header_fix{
+    justify-content: center;
+    padding: 8px 20px;
+    color: rgba(0,0,0,.54);
+    background: rgba(0,0,0,.03);
+}
+
+.mb_h3_title_widget{
+    color: rgba(0,0,0,.54);
+    font-size: 1.4rem;
+    font-weight: 500;
+   
+}
+.dataTables_wrapper{
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+.dataTables_wrapper .dataTables_filter input{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.dataTables_wrapper .dataTables_filter input[type=search]{
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+table.dataTable tbody td, table.dataTable tbody th{
+    padding: 4px 4px;   
+}
+
+.nav .subheader{
+    /*height: 5.1rem;
+    min-height: 5.1rem;*/
+}
