@@ -10,7 +10,7 @@ class loginModel extends Model
 
 	public function getUser($user, $password)
 	{
-					
+		
 		$sql = "SELECT 
 				    r.id_rol,
 				    r.acronym AS rol,
@@ -32,11 +32,16 @@ class loginModel extends Model
 				    ur.id_rol = r.id_rol
 				        AND ur.id_client = c.id_client
 				        AND ur.id_user = u.id_user
-				        AND u.user_name = '$user'
-				        AND u.password = '" . md5($password) . "'
-				        AND u.status = 'A';";
-		$data = $this->_db->query($sql);
-		return $data->fetch();
+				        AND u.user_name = :user
+				        AND u.password = :password
+				        AND u.status = 'A' ";
+		$this->_db->query($sql);
+		$this->_db->bind('user', $user);
+		$this->_db->bind('password', md5($password));
+		$this->_db->execute();
+		$data =  $this->_db->single();
+
+		return $data;
 	}
 }
 
