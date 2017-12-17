@@ -35,8 +35,7 @@ class loginController extends Controller
 
 			$row = $this->_login->getUser(
 					$this->getEmailValidated('mb_user'),
-					$this->getSql('mb_password'),
-					$this->getAlphaNum('state')
+					$this->getSql('mb_password')
 					);
 
 			if(!$row)
