@@ -9,7 +9,7 @@ class indexController extends Controller
 	public function index()
 	{
 	
-		Session::strictAccess(array('user'));
+		Session::strictAccess(array('NU'));
 		
 		$this->_view->title 		= 'Dashboard - Inicio';
 		$this->_view->page_title	= 'Dashboard';
