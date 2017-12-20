@@ -14,7 +14,7 @@ class View
 		# ARREGLO MENU
 		# Agregar arreglo para un nuevo menu de cabecera
 		$menu_left = array();
-		if(Session::get('level') == 'AD' || Session::get('level') == 'MU'){
+		if(Session::get('level') == 'AD' || Session::get('level') == 'MU'){ 
 
 			$menu_left = array(
 				"APLICATIONS" => array(
