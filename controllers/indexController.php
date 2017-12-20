@@ -12,7 +12,7 @@ class indexController extends Controller
 		Session::strictAccess(array('NU'));
 		
 		$this->_view->title 		= 'Dashboard - Inicio';
-		$this->_view->page_title	= 'Dashboard';
+		$this->_view->page_title	= 'Dashboard123';
 		$id_user		= Session::get('id_user');
 		$id_institucion	= Session::get('id_institucion');
 
