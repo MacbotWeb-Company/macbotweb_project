@@ -149,7 +149,7 @@
     </nav>
 
     <div class="content">
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #3c4252!important;padding-bottom: 6px !important; border-radius: 0px !important;">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #3c4252!important; border-radius: 0px !important; height: 5.8rem;">
         <i class="logo-icon icon-chart-line mr-2" style="color: #fff;"></i>
         <a class="navbar-brand" href="#" style="font-weight: bold;"><?php echo $this->page_title ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
