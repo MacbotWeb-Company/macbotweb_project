@@ -90,9 +90,10 @@ class Session
 
 	public static function getLevel($level)
 	{
-		$rol['admin'] 	= 3;
-		$rol['special'] = 2;
-		$rol['user']  	= 1;
+		$rol['AD'] 	= 4; // Admin
+		$rol['MU'] 	= 3; // Master User
+		$rol['NU'] 	= 2; // Normal User
+		$rol['RU']  = 1; // Read Only User
 
 		if(!array_key_exists($level, $rol))
 		{
@@ -117,7 +118,7 @@ class Session
 
 		if($noAdmin == false)
 		{
-			if(session::get('level') == 'admin')
+			if(session::get('level') == 'AD' ||  session::get('level') == 'MU')
 			{
 				return;
 			}
@@ -145,7 +146,7 @@ class Session
 
 		if(!$noAdmin == false)
 		{
-			if(session::get('level') == 'admin')
+			if(session::get('level') == 'AD' ||  session::get('level') == 'MU')
 			{
 				return true;
 			}
