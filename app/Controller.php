@@ -417,8 +417,77 @@ abstract class Controller
 		echo "<pre>";
 		var_dump($clave);
 		echo "</pre>";
-		//return $clave;	
 	}
+	
+	protected function getIconByLevel($level ){
+		$result = array();
+
+		if($level == 'AD')
+		{
+			$result['type']		= 'icon-account-key';
+			$result['delete']	= 'icon-lock';
+			$result['website']	= 'icon-account-network';
+		}
+		elseif($level == 'MU')
+		{
+			$result['type']		= 'icon-account-multiple';
+			$result['delete']	= 'icon-lock';
+			$result['website']	= 'icon-account-network';
+		}
+		elseif($level == 'NU')
+		{
+			$result['type']		= 'icon-account';
+			$result['delete']	= 'icon-delete';
+			$result['website']	= 'icon-web';
+		}
+		elseif($level == 'RU')
+		{
+			$result['type']		= 'icon-account-off';
+			$result['delete']	= 'icon-delete';
+			$result['website']	= 'icon-web';
+		}
+
+		return $result;
+	}
+
+	protected function getTooltipByLevel($level ){
+		$result = array();
+               
+		if($level == 'AD')
+		{
+			$result['user_type']	= "Admin User";
+			$result['user_delete']	= "You can't delete this user";
+			$result['user_website']	= "This user has all the websites enabled";
+		}
+		elseif($level == 'MU')
+		{
+			$result['user_type']	= "Master User";
+			$result['user_delete']	= "You can't delete this user";
+			$result['user_website']	= "This user has all the websites enabled";
+		}
+		elseif($level == 'NU')
+		{
+			$result['user_type']	= "Normal User";
+			$result['user_delete']	= "Click to delete a user";
+			$result['user_website']	= "Click to add the website for a user";
+		}
+		elseif($level == 'RU')
+		{
+			$result['user_type']	= "Read Only User";
+			$result['user_delete']	= "Click to delete a user";
+			$result['user_website']	= "Click to add the website for a user";
+		}
+
+		return $result;
+	}
+
+
+
+
+
+
+
+
 
 
 }
