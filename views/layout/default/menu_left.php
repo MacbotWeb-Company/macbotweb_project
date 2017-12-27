@@ -28,7 +28,7 @@
                         
                         <?php if(isset($_layoutParams['menu_left'])): ?>
                         <?php foreach($_layoutParams['menu_left'] as $key => $val): ?>
-                            <li class="subheader fixed-subheader-nav" style="height: 5.1rem !important;">
+                            <li class="subheader fixed-subheader-nav" style="height: 6.4rem !important;">
                                 <span><?php echo $key;?></span>
                             </li>
                             <?php foreach($val as $sub_key => $sub_val): ?>
