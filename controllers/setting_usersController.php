@@ -14,7 +14,8 @@ class setting_usersController extends Controller
 		Session::strictAccess(array('AD','MU'));
 		$this->_sess_client = Session::get('mb_id_client');
 		$this->_sess_user   = Session::get('mb_id_user');
-
+		$this->_view->icon_title	= 'icon-account-settings-variant';
+		$this->_view->page_title	= 'Setting Users';
 		$this->rs_UserSessioninfo = $this->_usersInfo->getUsersInfo(
 			$this->_sess_client, 
 			$this->_sess_user);
@@ -24,8 +25,7 @@ class setting_usersController extends Controller
 	public function index()
 	{
 
-		$this->_view->title			= 'Setting Users';
-		$this->_view->page_title	= 'Setting Users';
+		$this->_view->title	= 'List of Users';
 
 		$arr_userList	= $this->_usersSett->getUsersList($this->_sess_client);
 		$rs_userList 	= array();
@@ -57,6 +57,17 @@ class setting_usersController extends Controller
 		$this->_view->render('index', 'setting_users');
 
 	}
+
+	public function add_setting_users()
+	{
+		$this->_view->title	= 'Add Users';
+		
+		
+
+		
+		$this->_view->render('add_setting_users', 'setting_users');
+	}
+
 
 	public function delete_setting_users($id_user)
 	{
