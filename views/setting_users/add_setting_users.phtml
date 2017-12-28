@@ -1,0 +1,334 @@
+<style type="text/css">
+    .mb_nav_active_fix{
+        color: #00adef;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        color: #00adef;
+        background-color: #fff;
+        font-weight: bold;
+    }
+    .nav-tabs .nav-item.show .nav-link:not(.dropdown-toggle):after, .nav-tabs .nav-link.active:not(.dropdown-toggle):after {
+        color: #00adef;
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: #00adef;
+    }
+
+</style>
+ 
+<div id="e-commerce-product" class="page-layout simple tabbed">
+
+    <!-- HEADER -->
+    <div class="page-header bg-secondary text-auto row no-gutters align-items-center justify-content-between p-6">
+
+        <div class="row no-gutters align-items-center">
+            <div class="col-12 col-sm">
+                <div class="logo row no-gutters align-items-start">
+                    <div class="logo-icon mr-3 mt-0">
+                        <i class="icon-account-plus s-8" style="color: #3c4252;"></i>
+                    </div>
+                    <div class="logo-text">
+                        <div class="h4" style="color: #3c4252;">Add User</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary">
+            SAVE
+        </button>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="page-content">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+            <li class="nav-item">
+                <a class="nav-link btn active" id="basic-info-tab" data-toggle="tab" href="#basic-info-tab-pane"
+                   role="tab" aria-controls="basic-info-tab-pane" aria-expanded="true">Basic Info</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link btn" id="product-images-tab" data-toggle="tab" href="#product-images-tab-pane"
+                   role="tab" aria-controls="product-images-tab-pane">Product Images</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
+                <div class="card p-6">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                       <div class="product-image m-2">
+                                            <img class="w-100" src="<?php echo $_layoutParams['root_img']; ?>backgrounds/january.jpg">
+                                        </div>
+                                        <label class="custom-file">
+                                            <input type="file" id="file" class="custom-file-input" required>
+                                            <span class="custom-file-control"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="mb_userFirstName" placeholder="">
+                                        <label for="mb_userFirstName" class="col-form-label">Fisrt Name</label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="mb_userMiddleName" placeholder="">
+                                        <label for="mb_userMiddleName" class="col-form-label">Middle Name</label>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="mb_userLastName" placeholder="">
+                                        <label for="mb_userLastName" class="col-form-label">Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="product-images-tab-pane" role="tabpanel"
+     aria-labelledby="product-images-tab">
+
+    <div class="card p-6">
+
+        <div class="row">
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/january.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/february.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/march.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/april.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/may.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/june.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/july.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/august.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/september.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/october.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/november.jpg">
+                </div>
+
+            
+
+                <div class="product-image m-2">
+                    <img class="w-100" src="../assets/images/backgrounds/december.jpg">
+                </div>
+
+            
+
+        </div>
+    </div>
+</div>
+            <div class="tab-pane fade" id="pricing-tab-pane" role="tabpanel"
+     aria-labelledby="pricing-tab">
+
+    <div class="card p-6">
+
+        <form>
+
+            <div class="input-group mb-8">
+
+                <span class="input-group-addon">$</span>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                    <label>Tax Excluded Price</label>
+                </div>
+
+                <span class="input-group-addon">.00</span>
+
+            </div>
+
+            <div class="input-group mb-8">
+
+                <span class="input-group-addon">$</span>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                    <label>Tax Included Price</label>
+                </div>
+
+                <span class="input-group-addon">.00</span>
+
+            </div>
+
+            <div class="input-group mb-8">
+
+                <span class="input-group-addon">%</span>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" aria-label="taxt rate"/>
+                    <label>Tax Rate</label>
+                </div>
+
+            </div>
+
+            <div class="input-group mb-8">
+
+                <span class="input-group-addon">$</span>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
+                    <label>Compared Price</label>
+                    <small class="form-text text-muted">Add a compare price to show next to the real price</small>
+                </div>
+
+                <span class="input-group-addon">.00</span>
+
+            </div>
+        </form>
+    </div>
+</div>
+            <div class="tab-pane fade" id="inventory-tab-pane" role="tabpanel" aria-labelledby="inventory-tab">
+
+    <div class="card p-6">
+
+        <form>
+
+            <div class="form-group">
+                <input type="text" class="form-control" aria-describedby="sku"/>
+                <label>SKU</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" aria-describedby="barcode"/>
+                <label>Barcode</label>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="number" value="42" aria-describedby="quantity"/>
+                <label for="example-number-input">Quantity</label>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+            <div class="tab-pane fade" id="shipping-tab-pane" role="tabpanel" aria-labelledby="shipping-tab">
+
+    <div class="card p-6">
+
+        <form>
+
+            <div class="row">
+
+                <div class="col-4">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" aria-describedby="width"/>
+                        <label>Width</label>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" aria-describedby="height"/>
+                        <label>Height</label>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" aria-describedby="depth"/>
+                        <label>Depth</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" aria-describedby="weight"/>
+                <label>Weight</label>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="number" value="42" aria-describedby="quantity"/>
+                <label for="example-number-input">Quantity</label>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+        </div>
+    
+ 
+
+      
