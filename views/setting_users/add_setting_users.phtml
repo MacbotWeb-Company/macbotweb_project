@@ -41,36 +41,19 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary">
-            SAVE
-        </button>
+        
 
     </div>
     <!-- / HEADER -->
 
     <!-- CONTENT -->
     <div class="page-content">
-
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-            <li class="nav-item">
-                <a class="nav-link btn active" id="basic-info-tab" data-toggle="tab" href="#basic-info-tab-pane"
-                   role="tab" aria-controls="basic-info-tab-pane" aria-expanded="true">Basic Info</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link btn" id="product-images-tab" data-toggle="tab" href="#product-images-tab-pane"
-                   role="tab" aria-controls="product-images-tab-pane">Product Images</a>
-            </li>
-
-        </ul>
-
         <div class="tab-content">
             <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
-                <div class="card p-6">
+                <div class="card p-12">
                     <form>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                        <div class="product-image m-2">
@@ -84,7 +67,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <input type="text" class="form-control" id="mb_userFirstName" placeholder="">
@@ -101,233 +84,86 @@
                                         <label for="mb_userLastName" class="col-form-label">Last Name</label>
                                     </div>
                                 </div>
+
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <legend class="col-form-legend col-sm-2">User Type</legend>
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="gridRadios"
+                                                           id="gridRadios1" value="option1" checked>
+                                                    <span class="radio-icon"></span>
+                                                    <span class="form-check-description">Master User</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="gridRadios"
+                                                           id="gridRadios2" value="option2">
+                                                    <span class="radio-icon"></span>
+                                                    <span class="form-check-description">Normal User</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="gridRadios"
+                                                           id="gridRadios3" value="option3">
+                                                    <span class="radio-icon"></span>
+                                                    <span class="form-check-description">Read Only User</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                           aria-controls="home" aria-expanded="true">Contacts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                           aria-controls="profile">Account</a>
+                                    </li>
+                                   
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown
+                                            aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan
+                                            helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh
+                                            mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan
+                                            aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                                            Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan
+                                            four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft
+                                            beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda
+                                            labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit
+                                            sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean
+                                            shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
+                                            tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
+                        <button type="button" class="btn btn-primary">
+                            SAVE
+                        </button>
                     </form>
                 </div>
             </div>
-            
-            <div class="tab-pane fade" id="product-images-tab-pane" role="tabpanel"
-     aria-labelledby="product-images-tab">
-
-    <div class="card p-6">
-
-        <div class="row">
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/january.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/february.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/march.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/april.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/may.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/june.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/july.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/august.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/september.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/october.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/november.jpg">
-                </div>
-
-            
-
-                <div class="product-image m-2">
-                    <img class="w-100" src="../assets/images/backgrounds/december.jpg">
-                </div>
-
-            
-
         </div>
     </div>
-</div>
-            <div class="tab-pane fade" id="pricing-tab-pane" role="tabpanel"
-     aria-labelledby="pricing-tab">
-
-    <div class="card p-6">
-
-        <form>
-
-            <div class="input-group mb-8">
-
-                <span class="input-group-addon">$</span>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
-                    <label>Tax Excluded Price</label>
-                </div>
-
-                <span class="input-group-addon">.00</span>
-
-            </div>
-
-            <div class="input-group mb-8">
-
-                <span class="input-group-addon">$</span>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
-                    <label>Tax Included Price</label>
-                </div>
-
-                <span class="input-group-addon">.00</span>
-
-            </div>
-
-            <div class="input-group mb-8">
-
-                <span class="input-group-addon">%</span>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" aria-label="taxt rate"/>
-                    <label>Tax Rate</label>
-                </div>
-
-            </div>
-
-            <div class="input-group mb-8">
-
-                <span class="input-group-addon">$</span>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"/>
-                    <label>Compared Price</label>
-                    <small class="form-text text-muted">Add a compare price to show next to the real price</small>
-                </div>
-
-                <span class="input-group-addon">.00</span>
-
-            </div>
-        </form>
-    </div>
-</div>
-            <div class="tab-pane fade" id="inventory-tab-pane" role="tabpanel" aria-labelledby="inventory-tab">
-
-    <div class="card p-6">
-
-        <form>
-
-            <div class="form-group">
-                <input type="text" class="form-control" aria-describedby="sku"/>
-                <label>SKU</label>
-            </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control" aria-describedby="barcode"/>
-                <label>Barcode</label>
-            </div>
-
-            <div class="form-group">
-                <input class="form-control" type="number" value="42" aria-describedby="quantity"/>
-                <label for="example-number-input">Quantity</label>
-            </div>
-
-        </form>
-    </div>
-</div>
-
-            <div class="tab-pane fade" id="shipping-tab-pane" role="tabpanel" aria-labelledby="shipping-tab">
-
-    <div class="card p-6">
-
-        <form>
-
-            <div class="row">
-
-                <div class="col-4">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" aria-describedby="width"/>
-                        <label>Width</label>
-                    </div>
-
-                </div>
-
-                <div class="col-4">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" aria-describedby="height"/>
-                        <label>Height</label>
-                    </div>
-
-                </div>
-
-                <div class="col-4">
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" aria-describedby="depth"/>
-                        <label>Depth</label>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control" aria-describedby="weight"/>
-                <label>Weight</label>
-            </div>
-
-            <div class="form-group">
-                <input class="form-control" type="number" value="42" aria-describedby="quantity"/>
-                <label for="example-number-input">Quantity</label>
-            </div>
-
-        </form>
-    </div>
-</div>
-
-        </div>
     
  
 
