@@ -1,33 +1,8 @@
-<style type="text/css">
-    .mb_nav_active_fix{
-        color: #00adef;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 12px;
-    }
-    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-        color: #00adef;
-        background-color: #fff;
-        font-weight: bold;
-    }
-    .nav-tabs .nav-item.show .nav-link:not(.dropdown-toggle):after, .nav-tabs .nav-link.active:not(.dropdown-toggle):after {
-        color: #00adef;
-        content: '';
-        position: absolute;
-        width: 100%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        background-color: #00adef;
-    } 
- 
-</style>
- 
+
 <div id="e-commerce-product" class="page-layout simple tabbed">
 
     <!-- HEADER -->
-    <div class="page-header bg-secondary text-auto row no-gutters align-items-center justify-content-between p-6">
+    <div class="page-header bg-secondary text-auto row no-gutters align-items-center justify-content-between p-6 mb_title_page_header">
 
         <div class="row no-gutters align-items-center">
             <div class="col-12 col-sm">
@@ -51,13 +26,14 @@
         <div class="tab-content">
             <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
                 <div class="card p-12">
-                    <form method="post">
+                    <form name="AddUserForm" method="post" action="">
+                    <input type="hidden" value="1" name="send">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                        <div class="product-image m-2">
-                                            <img class="w-100" src="<?php echo $_layoutParams['root_img']; ?>backgrounds/january.jpg">
+                                            <img class="w-100" src="<?php echo $_layoutParams['root_img']; ?>avatars/profile.jpg">
                                         </div>
                                         <label class="custom-file">
                                             <input type="file" id="file" class="custom-file-input">
@@ -70,38 +46,41 @@
                             <div class="col-md-9">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="mb_userFirstName" placeholder="">
-                                        <label for="mb_userFirstName" class="col-form-label">Fisrt Name</label>
+                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>" required >
+                                        <label for="mb_FirstName" class="col-form-label mb_input">
+                                        <i class="icon s-4 icon-account"></i> Fisrt Name
+                                    </label>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="mb_userMiddleName" placeholder="">
-                                        <label for="mb_userMiddleName" class="col-form-label">Middle Name</label>
+                                        <input type="text" class="form-control" name="mb_MiddleName" id="mb_MiddleName" placeholder="" required>
+                                        <label for="mb_MiddleName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Middle Name
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" id="mb_userLastName" placeholder="">
-                                        <label for="mb_userLastName" class="col-form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="">
+                                        <label for="mb_LastName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Last Name</label>
                                     </div>
                                 </div>
                                 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <div class="form-row align-items-center">
-                                            <div class="col-auto">
-                                                <label class="sr-only" for="inlineFormInput">Name</label>
-                                                <input type="text" class="form-control mb-2 mb-sm-0" id="inlineFormInput"
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label class="sr-only" for="mb_User_1">Name</label>
+                                                <input type="text" class="form-control mb-2 mb-sm-0" name="mb_User_1" id="mb_User_1"
                                                        placeholder="Jane Doe">
-                                            </div>
-                                            <div class="col-auto">
-                                                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                           </div>
+                                           <div class="form-group col-md-6">
+                                                <label class="sr-only" for="mb_User_2">Username</label>
                                                 <div class="input-group mb-2 mb-sm-0">
                                                     <div class="input-group-addon">@</div>
-                                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                                    <input type="text" class="form-control" name="mb_User_2" id="mb_User_2"
                                                            placeholder="Username" aria-describedby="passwordHelpBlock">
                                                 </div>
                                             </div>
-                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                            <small id="passwordHelpBlock" class="form-text text-muted mb-fixed-small-user">
                                                 Add your user account to access MacbotWeb.
                                             </small>    
                                         </div>
@@ -113,24 +92,26 @@
                                                 <div class="col-sm-8">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" name="gridRadios"
-                                                                   id="gridRadios1" value="option1" checked>
+                                                            <input class="form-check-input" type="radio" name="mb_rolUser"
+                                                                   id="gridRadios1" value="2" checked>
+                                                            
                                                             <span class="radio-icon"></span>
                                                             <span class="form-check-description">Master User</span>
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" name="gridRadios"
-                                                                   id="gridRadios2" value="option2">
+                                                            <input class="form-check-input" type="radio" name="mb_rolUser"
+                                                                   id="gridRadios2" value="3">
                                                             <span class="radio-icon"></span>
                                                             <span class="form-check-description">Normal User</span>
                                                         </label>
+
                                                     </div>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input class="form-check-input" type="radio" name="gridRadios"
-                                                                   id="gridRadios3" value="option3">
+                                                            <input class="form-check-input" type="radio" name="mb_rolUser"
+                                                                   id="gridRadios3" value="4">
                                                             <span class="radio-icon"></span>
                                                             <span class="form-check-description">Read Only User</span>
                                                         </label>
@@ -148,55 +129,88 @@
                             <div class="col-md-12">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom: 1px solid #ddd;">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                           aria-controls="home" aria-expanded="true">Contacts</a>
+                                        <a class="nav-link mb-link-uppercase active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                           aria-controls="home" aria-expanded="true">contacts</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                           aria-controls="profile">Password</a>
+                                        <a class="nav-link mb-link-uppercase" id="profile-tab" data-toggle="tab" href="#location" role="tab"
+                                           aria-controls="location">location</a>
                                     </li>
-                                   
+                                   <li class="nav-item">
+                                        <a class="nav-link mb-link-uppercase" id="profile-tab" data-toggle="tab" href="#password" role="tab"
+                                           aria-controls="password">password 
+                                           <!--<i class="icon s-5 icon-information" data-toggle="tooltip" data-placement="top" title="Si modifica la contraseña se actualizara"></i>-->
+                                        </a>
+                                    </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                          <p>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" id="mb_Mobile" placeholder="">
-                                                    <label for="mb_Mobile" class="col-form-label">Mobile Phone</label>
+                                                    <input type="text" class="form-control" name="mb_Mobile" id="mb_Mobile" placeholder="">
+                                                    <label for="mb_Mobile" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-android"></i> Mobile Phone
+                                                    </label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" id="mb_Phone" placeholder="">
-                                                    <label for="mb_Phone" class="col-form-label">Work Phone</label>
+                                                    <input type="text" class="form-control" name="mb_Phone" id="mb_Phone" placeholder="">
+                                                    <label for="mb_Phone" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-basic"></i> Work Phone</label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="mb_Address" placeholder="1234 Main St">
-                                                <label for="mb_Address" class="col-form-label">Address</label>
+                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St">
+                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="mb_Address2" placeholder="1234 Main St">
-                                                <label for="mb_Address2" class="col-form-label">Address 2</label>
+                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address2" placeholder="1234 Main St">
+                                                <label for="mb_Address2" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address2</label>
                                             </div>
                                         </p>
                                     </div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="home-tab">
+                                         <p>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St">
+                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Country</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St">
+                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> City</label>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" class="form-control" id="inputCity">
+                                                    <label for="inputCity" class="col-form-label">Region</label>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                    <label for="inputState" class="col-form-label">State</label>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                    <label for="inputZip" class="col-form-label">Postal code</label>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="profile-tab">
                                         <p>
                                             <div class="form-row">
-                                            <label for="inputPassword5">Password</label>
-                                                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-                                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
                                                     Your password must be 8-20 characters long, contain letters and numbers, and must not contain
                                                     spaces, special characters, or emoji.
                                                 </small>
-                                                <!--<div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" id="mb_userFirstName" placeholder="">
-                                                    <label for="mb_userFirstName" class="col-form-label">Current Password </label>
+                                            <!--<label for="inputPassword5">Password</label>
+                                                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">-->
+                                                
+                                                <div class="form-group col-md-6">
+                                                    <input type="password" class="form-control" id="mb_userFirstName" placeholder="">
+                                                    <label for="mb_userFirstName" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password </label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" id="mb_userMiddleName" placeholder="">
-                                                    <label for="mb_userMiddleName" class="col-form-label">New Password</label>
-                                                </div>-->
+                                                    <input type="password" class="form-control" id="mb_userMiddleName" placeholder="">
+                                                    <label for="mb_userMiddleName" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password Confirmation</label>
+                                                </div>
                                             </div>
                                             <!--<div class="form-row">
                                                 <div class="form-group col-md-12">
@@ -210,7 +224,7 @@
                             </div>
                         </div>
                         
-                        <input type="submit" name="btn_addUser" value="SAVE" type="button" class="btn btn-primary" />
+                        <input type="submit"  value="SAVE" type="button" class="btn btn-primary" />
                     </form>
                 </div>
             </div>
