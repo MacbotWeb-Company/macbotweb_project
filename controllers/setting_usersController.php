@@ -61,7 +61,40 @@ class setting_usersController extends Controller
 	public function add_setting_users()
 	{
 		$this->_view->title	= 'Add Users';
-		
+		if($this->getInt('send') == 1)
+		{
+			$this->_view->datos = $_POST;
+			$username = $this->getText('mb_User_1') . "@" .$this->getText('mb_User_2');
+			/*if(!$this->getEmailValidated('mb_user'))
+			{
+				$this->_view->error = 'Debe introducir su nombre de usuario';
+				$this->_view->render('add_setting_users', 'setting_users');
+				exit();
+			}*/
+
+			
+			$this->_usersSett->insertUser(
+				$username, 
+				$this->getInt('mb_FirstName'), 
+				$this->getInt('mb_FirstName'), 
+				$this->getText('mb_FirstName'), 
+				$this->getText('mb_MiddleName'), 
+				$this->getText('mb_LastName'), 
+				$this->getInt('mb_Mobile'), 
+				$this->getInt('mb_Phone'), 
+				$this->getText('mb_Address'), 
+				$this->getText('mb_Address2'), 
+				'A');
+
+			$iduser = $this->_usersSett->lastInsert();
+			
+			$this->_usersSett->insertUserRol(
+				$this->filterInt($this->_sess_client), 
+				$this->filterInt($iduser), 
+				$this->getInt('mb_rolUser'), 
+				$this->getDatetime(), 
+				'A');
+		}
 		
 
 		
