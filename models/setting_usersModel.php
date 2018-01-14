@@ -36,6 +36,47 @@ class setting_usersModel extends Model
 		return $data;
 	}
 
+	public function insertUser($user_name, $password, $nick_name, $first_name, $middle_name, $last_name, $mobile_phone, $work_phone, $address, $address2, $status){
+		
+		$sql = "INSERT INTO mb_users (id_user, user_name, password, nick_name, first_name, middle_name, last_name, mobile_number, work_number, address, address2, status) VALUES (null, :user_name, :password, :nick_name, :first_name, :middle_name, :last_name, :mobile_number, :work_number, :address, :address2, :status)";
+		
+		$this->_db->query($sql);
+		$this->_db->bind('user_name', $user_name);
+		$this->_db->bind('password', $password);
+		$this->_db->bind('nick_name', $nick_name);
+		$this->_db->bind('first_name', $first_name);
+		$this->_db->bind('middle_name', $middle_name);
+		$this->_db->bind('last_name', $last_name);
+		$this->_db->bind('mobile_number', $mobile_phone);
+		$this->_db->bind('work_number', $work_phone);
+		$this->_db->bind('address', $address);
+		$this->_db->bind('address2', $address2);
+		$this->_db->bind('status', $status);
+		$this->_db->execute();
+	
+	}
+
+	public function insertUserRol($id_client, $id_user, $id_rol, $date_created, $status){
+		
+		$sql = "INSERT INTO mb_user_rol (id_user_rol, id_client, id_user, id_rol, date_created, status) VALUES (null, :id_client, :id_user, :id_rol, :date_created, :status)";
+		$this->_db->query($sql);
+		$this->_db->bind('id_client', $id_client);
+		$this->_db->bind('id_user', $id_user);
+		$this->_db->bind('id_rol', $id_rol);
+		$this->_db->bind('date_created', $date_created);
+		$this->_db->bind('status', $status);
+
+		$this->_db->execute();
+	
+	}
+
+
+	public function lastInsert()
+	{
+		$last_insert = $this->_db->lastInsertId();
+
+		return $last_insert;
+	}
 
 	public function deleteUsers($id_user)
 	{
