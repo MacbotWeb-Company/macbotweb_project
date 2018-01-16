@@ -169,6 +169,33 @@
             </div>
         </nav>
 
+        <div id="e-commerce-product" class="page-layout simple tabbed">
+            <?php if(isset($this->error)): ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <strong><i class="icon s-6 icon-alert" style="color: #fff;"></i> ERROR!</strong> <?php echo $this->error;?>.
+            </div>
+            <?php endif; ?>
+            <!-- HEADER -->
+            <div class="page-header bg-secondary text-auto row no-gutters align-items-center justify-content-between p-6 mb_title_page_header">
+
+                <div class="row no-gutters align-items-center">
+                    <div class="col-12 col-sm">
+                        <div class="logo row no-gutters align-items-start">
+                            <div class="logo-icon mr-3 mt-0">
+                                <i class="<?php if(isset($this->icon)) echo $this->icon; ?> s-8" style="color: #3c4252;"></i>
+                            </div>
+                            <div class="logo-text">
+                                <div class="h4" style="color: #3c4252;"><?php echo $this->title;?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / HEADER -->
+
 
 
 
