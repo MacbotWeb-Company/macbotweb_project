@@ -3,10 +3,12 @@
 class View
 {
 	private $_controller;
+	private $_js;
 
 	public function __construct(Request $petition)
 	{
-		$this->_controller = $petition->getController();
+		$this->_controller 	= $petition->getController();
+		$this->_js			= array();
 	}
 
 	public function render($view, $item = false, $item1 = false)
@@ -119,13 +121,22 @@ class View
 		$arr_menu_rigth = array('materias');
 		# END MENU RIGTH 
 
+		# DECLARAR JS EN ARCHIVOS PHP
+		$js = array();
+		if(count($this->_js))
+		{
+			$js = $this->_js;
+		}
+
+
 		# ARREGLO DE ARCHHIVOS STATICOS CSS, JS, IMG
 		$_layoutParams = array(
 			'root_css'	=> BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/css/',
 			'root_img'	=> BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/images/',
 			'root_js'	=> BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/js/',
 			'menu_left' => $menu_left,
-			'menu_rigth'=> $menu_rigth 
+			'menu_rigth'=> $menu_rigth,
+			'js'		=> $js
 		);
 
 
@@ -156,6 +167,23 @@ class View
 			throw new Exception("Error: Views");	
 		}
 	}
+
+	public function setJs(array $js)
+	{
+		if(is_array($js) && count($js))
+		{
+			for($i=0; $i < count($js); $i ++)
+			{
+				$this->_js[] = BASE_URL . 'views/' . $this->_controller . '/js/' . $js[$i] . '.js';
+			}
+		}
+		else
+		{
+			throw new Exception("Error Processing JS", 1);
+			
+		}
+	}
+
 }
 
 
