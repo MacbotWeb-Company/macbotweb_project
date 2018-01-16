@@ -1,55 +1,9 @@
-<style type="text/css">
-    .alert-warning{
-        /*border-color:  #e16152;
-        background: #e16152;
-        position: relative;
-        color: #fff;
-        text-transform: uppercase;
-        text-align: center;
-        padding: 1.25em 3.75em 1.25em 1.25em;
-        fill: #fff;
-        -webkit-box-flex: 1;
-        -ms-flex: auto 0 0;
-        flex: auto 0 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        width: 100%;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        overflow: hidden;*/
-        border-color: #e16152;
-        background: #e16152;
-        position: relative;
-        color: #fff;
-        text-transform: uppercase;
-        padding: 1.25em 1.75em 0.25em 2.25em;
-        fill: #fff;
-        -ms-flex: auto 0 0;
-        display: -ms-flexbox;
-        width: 100%;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        overflow: hidden;
-        border-radius: 0px;
-        box-shadow: none;
-        margin-bottom: 0px;
-    }
-</style>
     <!-- CONTENT -->
     <div class="page-content">
         <div class="tab-content">
             <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
                 <div class="card p-12">
-                    <form name="AddUserForm" method="post" action="">
+                    <form  method="post" action="" id="needs-validation" novalidate>
                     <input type="hidden" value="1" name="send">
                         <div class="row">
                             <div class="col-md-3">
@@ -69,10 +23,13 @@
                             <div class="col-md-9">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>">
+                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>" required>
                                         <label for="mb_FirstName" class="col-form-label mb_input">
                                         <i class="icon s-4 icon-account"></i> Fisrt Name
-                                    </label>
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid first name.
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input type="text" class="form-control" name="mb_MiddleName" id="mb_MiddleName" placeholder=""  value="<?php if(isset($this->datos)) echo $this->datos['mb_MiddleName'];  ?>">
@@ -82,8 +39,11 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_LastName'];  ?>">
+                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_LastName'];  ?>" required>
                                         <label for="mb_LastName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Last Name</label>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid last name.
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -93,7 +53,10 @@
                                             <div class="form-group col-md-6">
                                                 <label class="sr-only" for="mb_User_1">Name</label>
                                                 <input type="text" class="form-control mb-2 mb-sm-0" name="mb_User_1" id="mb_User_1"
-                                                       placeholder="Jane Doe" value="<?php if(isset($this->datos)) echo $this->datos['mb_User_1'];  ?>">
+                                                       placeholder="Jane Doe" value="<?php if(isset($this->datos)) echo $this->datos['mb_User_1'];  ?>" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid user name.
+                                                </div>
                                            </div>
                                            <div class="form-group col-md-6">
                                                 <label class="sr-only" for="mb_User_2">Username</label>
@@ -232,7 +195,7 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <input type="password" class="form-control" id="mb_PasswordConfirmation" name="mb_PasswordConfirmation" placeholder="">
-                                                    <label for="mb_PasswordConfirmation" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password Confirmation</label>
+                                                    <label for="mb_PasswordConfirmation" class="col-form-label mb_input"><i class="icon s-4 icon-key" min="0" max="10"></i> Password Confirmation</label>
                                                 </div>
                                             </div>
                                             <!--<div class="form-row">
@@ -246,8 +209,7 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <input type="submit"  value="SAVE" type="button" class="btn btn-primary" />
+                        <input type="submit"  value="SAVE" class="btn btn-primary" />
                     </form>
                 </div>
             </div>
