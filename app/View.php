@@ -49,6 +49,7 @@ class View
 						'url'	=> 'javascript:;',
 						'sub-menu' => array(
 							array('id' => 'setting_users', 'title' => 'Users List', 'url' => BASE_URL . 'setting_users'),
+							array('id' => 'add_users', 'title' => 'Add Users', 'url' => BASE_URL . 'setting_users/add_setting_users'),
 							)
 					)
 				)
