@@ -25,6 +25,7 @@ class setting_usersController extends Controller
 	public function index()
 	{
 
+		$this->_view->icon	= 'icon-format-list-checks';
 		$this->_view->title	= 'List of Users';
 
 		$arr_userList	= $this->_usersSett->getUsersList($this->_sess_client);
@@ -60,23 +61,58 @@ class setting_usersController extends Controller
 
 	public function add_setting_users()
 	{
+		$this->_view->icon	= 'icon-account-plus';
 		$this->_view->title	= 'Add Users';
+
 		if($this->getInt('send') == 1)
 		{
 			$this->_view->datos = $_POST;
 			$username = $this->getText('mb_User_1') . "@" .$this->getText('mb_User_2');
-			/*if(!$this->getEmailValidated('mb_user'))
+			if(!$this->getText('mb_FirstName'))
 			{
-				$this->_view->error = 'Debe introducir su nombre de usuario';
-				$this->_view->render('add_setting_users', 'setting_users');
+				$this->_view->error = 'The first name is required';
+				$this->_view->render('add_setting_users', 'add_users');
 				exit();
-			}*/
-
+			}
 			
+			if(!$this->getText('mb_LastName'))
+			{
+				$this->_view->error = 'The last name is required';
+				$this->_view->render('add_setting_users', 'add_users');
+				exit();
+			}
+
+			if(!$this->getEmailValidatedText($username))
+			{
+				$this->_view->error = 'The email is invalid';
+				$this->_view->render('add_setting_users', 'add_users');
+				exit();
+			}
+			if(!$this->getAlphaNum('mb_Password'))
+			{
+				$this->_view->error = 'The password is required';
+				$this->_view->render('add_setting_users', 'add_users');
+				exit();
+			}
+			if(!$this->getAlphaNum('mb_PasswordConfirmation'))
+			{
+				$this->_view->error = 'The password confirmation is required';
+				$this->_view->render('add_setting_users', 'add_users');
+				exit();
+			}
+
+			if($this->getAlphaNum('mb_Password') != $this->getAlphaNum('mb_PasswordConfirmation'))
+			{
+				$this->_view->error = 'The password not match';
+				$this->_view->render('add_setting_users', 'add_users');
+				exit();
+			}
+
+
 			$this->_usersSett->insertUser(
 				$username, 
-				$this->getInt('mb_FirstName'), 
-				$this->getInt('mb_FirstName'), 
+				md5($this->getAlphaNum('mb_Password')), 
+				NULL, 
 				$this->getText('mb_FirstName'), 
 				$this->getText('mb_MiddleName'), 
 				$this->getText('mb_LastName'), 
@@ -98,7 +134,7 @@ class setting_usersController extends Controller
 		
 
 		
-		$this->_view->render('add_setting_users', 'setting_users');
+		$this->_view->render('add_setting_users', 'add_users');
 	}
 
 
