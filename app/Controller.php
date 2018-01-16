@@ -482,7 +482,15 @@ abstract class Controller
 	}
 
 
-
+	protected function getEmailValidatedText($clave)
+	{
+		if(isset($clave) && !empty($clave))
+		{
+			if (filter_var($clave, FILTER_VALIDATE_EMAIL)) {
+			    return trim($clave);
+			}
+		}
+	}
 
 
 
