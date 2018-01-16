@@ -61,8 +61,10 @@ class setting_usersController extends Controller
 
 	public function add_setting_users()
 	{
+		$this->_view->setJs(array('add_users'));
 		$this->_view->icon	= 'icon-account-plus';
 		$this->_view->title	= 'Add Users';
+
 
 		if($this->getInt('send') == 1)
 		{
