@@ -113,29 +113,3 @@
                 </div>
             </div>
         </aside>
-        
-        <?php if(isset($this->error)): ?>
-        <div class="alert alert-block alert-danger fade in">
-            <button data-dismiss="alert" class="close close-sm" type="button">
-                <i class="fa fa-times"></i>
-            </button>
-            <?php echo $this->error;?>
-        </div>
-
-        <?php endif; ?>
-
-
-        <?php if(isset($this->iscorrect)): ?>
-        <div class="alert alert-success alert-block fade in">
-            <button data-dismiss="alert" class="close close-sm" type="button">
-                <i class="fa fa-times"></i>
-            </button>
-            <h4>
-                <i class="icon-ok-sign"></i>
-                Success!
-            </h4>
-            <p><?php echo $this->iscorrect;?></p>
-        </div>
-
-        <?php endif; ?>
-
