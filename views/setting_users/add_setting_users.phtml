@@ -1,26 +1,49 @@
-
-<div id="e-commerce-product" class="page-layout simple tabbed">
-
-    <!-- HEADER -->
-    <div class="page-header bg-secondary text-auto row no-gutters align-items-center justify-content-between p-6 mb_title_page_header">
-
-        <div class="row no-gutters align-items-center">
-            <div class="col-12 col-sm">
-                <div class="logo row no-gutters align-items-start">
-                    <div class="logo-icon mr-3 mt-0">
-                        <i class="icon-account-plus s-8" style="color: #3c4252;"></i>
-                    </div>
-                    <div class="logo-text">
-                        <div class="h4" style="color: #3c4252;">Add User</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
-    </div>
-    <!-- / HEADER -->
-
+<style type="text/css">
+    .alert-warning{
+        /*border-color:  #e16152;
+        background: #e16152;
+        position: relative;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1.25em 3.75em 1.25em 1.25em;
+        fill: #fff;
+        -webkit-box-flex: 1;
+        -ms-flex: auto 0 0;
+        flex: auto 0 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        overflow: hidden;*/
+        border-color: #e16152;
+        background: #e16152;
+        position: relative;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 1.25em 1.75em 0.25em 2.25em;
+        fill: #fff;
+        -ms-flex: auto 0 0;
+        display: -ms-flexbox;
+        width: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 0px;
+        box-shadow: none;
+        margin-bottom: 0px;
+    }
+</style>
     <!-- CONTENT -->
     <div class="page-content">
         <div class="tab-content">
@@ -46,20 +69,20 @@
                             <div class="col-md-9">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>" required >
+                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>">
                                         <label for="mb_FirstName" class="col-form-label mb_input">
                                         <i class="icon s-4 icon-account"></i> Fisrt Name
                                     </label>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name="mb_MiddleName" id="mb_MiddleName" placeholder="" required>
+                                        <input type="text" class="form-control" name="mb_MiddleName" id="mb_MiddleName" placeholder=""  value="<?php if(isset($this->datos)) echo $this->datos['mb_MiddleName'];  ?>">
                                         <label for="mb_MiddleName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Middle Name
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="">
+                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_LastName'];  ?>">
                                         <label for="mb_LastName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Last Name</label>
                                     </div>
                                 </div>
@@ -70,14 +93,14 @@
                                             <div class="form-group col-md-6">
                                                 <label class="sr-only" for="mb_User_1">Name</label>
                                                 <input type="text" class="form-control mb-2 mb-sm-0" name="mb_User_1" id="mb_User_1"
-                                                       placeholder="Jane Doe">
+                                                       placeholder="Jane Doe" value="<?php if(isset($this->datos)) echo $this->datos['mb_User_1'];  ?>">
                                            </div>
                                            <div class="form-group col-md-6">
                                                 <label class="sr-only" for="mb_User_2">Username</label>
                                                 <div class="input-group mb-2 mb-sm-0">
                                                     <div class="input-group-addon">@</div>
                                                     <input type="text" class="form-control" name="mb_User_2" id="mb_User_2"
-                                                           placeholder="Username" aria-describedby="passwordHelpBlock">
+                                                           placeholder="Username" aria-describedby="passwordHelpBlock" value="<?php if(isset($this->datos)) echo $this->datos['mb_User_2'];  ?>">
                                                 </div>
                                             </div>
                                             <small id="passwordHelpBlock" class="form-text text-muted mb-fixed-small-user">
@@ -148,21 +171,21 @@
                                          <p>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" name="mb_Mobile" id="mb_Mobile" placeholder="">
+                                                    <input type="text" class="form-control" name="mb_Mobile" id="mb_Mobile" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_Mobile'];  ?>">
                                                     <label for="mb_Mobile" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-android"></i> Mobile Phone
                                                     </label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" name="mb_Phone" id="mb_Phone" placeholder="">
+                                                    <input type="text" class="form-control" name="mb_Phone" id="mb_Phone" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_Phone'];  ?>">
                                                     <label for="mb_Phone" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-basic"></i> Work Phone</label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St">
+                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St" value="<?php if(isset($this->datos)) echo $this->datos['mb_Address'];  ?>">
                                                 <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address2" placeholder="1234 Main St">
+                                                <input type="text" class="form-control" name="mb_Address2" id="mb_Address2" placeholder="12345 Main St" value="<?php if(isset($this->datos)) echo $this->datos['mb_Address2'];  ?>">
                                                 <label for="mb_Address2" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address2</label>
                                             </div>
                                         </p>
@@ -170,25 +193,25 @@
                                     <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="home-tab">
                                          <p>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St">
-                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Country</label>
+                                                <input type="text" class="form-control" name="mb_Country" id="mb_Country" placeholder="1234 Main St">
+                                                <label for="mb_Country" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Country</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St">
-                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> City</label>
+                                                <input type="text" class="form-control" name="mb_City" id="mb_City" placeholder="1234 Main St">
+                                                <label for="mb_City" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> City</label>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" id="inputCity">
-                                                    <label for="inputCity" class="col-form-label">Region</label>
+                                                    <input type="text" class="form-control" id="mb_Region" name="mb_Region">
+                                                    <label for="mb_Region" class="col-form-label">Region</label>
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                    <label for="inputState" class="col-form-label">State</label>
+                                                    <input type="text" class="form-control" id="mb_State" name="mb_State">
+                                                    <label for="mb_State" class="col-form-label">State</label>
                                                 </div>
                                                 <div class="form-group col-md-2">
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                    <label for="inputZip" class="col-form-label">Postal code</label>
+                                                    <input type="text" class="form-control" id="mb_PostalCode" name="mb_PostalCode">
+                                                    <label for="mb_PostalCode" class="col-form-label">Postal code</label>
                                                 </div>
                                             </div>
                                         </p>
@@ -204,12 +227,12 @@
                                                 <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">-->
                                                 
                                                 <div class="form-group col-md-6">
-                                                    <input type="password" class="form-control" id="mb_userFirstName" placeholder="">
-                                                    <label for="mb_userFirstName" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password </label>
+                                                    <input type="password" class="form-control" id="mb_Password" name="mb_Password" placeholder="">
+                                                    <label for="mb_Password" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password </label>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <input type="password" class="form-control" id="mb_userMiddleName" placeholder="">
-                                                    <label for="mb_userMiddleName" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password Confirmation</label>
+                                                    <input type="password" class="form-control" id="mb_PasswordConfirmation" name="mb_PasswordConfirmation" placeholder="">
+                                                    <label for="mb_PasswordConfirmation" class="col-form-label mb_input"><i class="icon s-4 icon-key"></i> Password Confirmation</label>
                                                 </div>
                                             </div>
                                             <!--<div class="form-row">
