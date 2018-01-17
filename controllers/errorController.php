@@ -43,7 +43,7 @@ class errorController extends Controller
 		}
 
 		$error['default']	= 'Sorry but we couldn’t find the page you are looking for';
-		$error['5050']		= 'Acceso restringido';
+		$error['401']		= "OOOPS!!! -  Well, you need authorization ";
 		$error['8080']		= 'Tiempo de la session agotado';
 
 		if(array_key_exists($cod, $error))
