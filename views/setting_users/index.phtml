@@ -1,8 +1,41 @@
+<style type="text/css">
+    .btn-default-bootbox {
+        background-color: position: relative;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #bdbdbd;
+        outline: 0;
+        height: 4rem;
+        line-height: 3rem;
+        padding: 4px;
+        display: block;
+    }
+    .btn-primary-bootbox {
+        color: #fff;
+        background-color: #3c4252;
+        border-color: #3c4252;
+        -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+        -webkit-transition: -webkit-box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        transition: -webkit-box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        transition: box-shadow 280ms cubic-bezier(.4,0,.2,1),-webkit-box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        will-change: box-shadow;
+        color: #fff!important;
+        height: 4rem;
+    }
+    .column-title{
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+</style>
 <div class="doc data-table-doc page-layout simple full-width">
-    <div class="page-content row p-6 container">
-
+    <div class="page-content row p-6">
         <div class="col-12">
-
             <div class="example">
                 <div class="description mb_header_fix">
                     <i class="icon s-5 icon-format-list-bulleted mr-1"></i>
@@ -41,12 +74,12 @@
                             </th>
                             <th class="text-center secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">Nick Name</span>
+                                    <span class="column-title">First Name</span>
                                 </div>
                             </th>
                             <th class="text-center secondary-text">
                                 <div class="table-header">
-                                    <span class="column-title">First Name</span>
+                                    <span class="column-title">Middle Name</span>
                                 </div>
                             </th>
                             <th class="text-center secondary-text">
@@ -83,11 +116,21 @@
                         <?php foreach($this->usersList as $key => $val): ?>    
                         <tr>
                             <td class="text-center" style="width: 6%">
-                                <a href="<?php echo BASE_URL . 'setting_users/delete_setting_users/' . $val['id_user'] . '/'; ?>" class="shortcut-button btn btn-icon mx-1 fuse-ripple-ready" data-toggle="tooltip" 
+                                <?php if($val['type'] != 'MU'): ?>
+                                <a href="<?php echo BASE_URL . 'setting_users/delete_setting_users/' . $val['id_user'] . '/'; ?>" class="shortcut-button btn btn-icon mx-1 fuse-ripple-ready delete_users" 
+                                data-toggle="tooltip" 
+                                data-placement="bottom" 
+                                data-original-title="<?php echo $val['tp_userDelete']; ?>" id="<?php echo $val['id_user'];?>">
+                                    <i class="icon <?php echo $val['icon_userDelete'];?>"></i>
+                                </a>
+                                <?php else: ?>
+                                <a href="#" class="shortcut-button btn btn-icon mx-1 fuse-ripple-ready" 
+                                data-toggle="tooltip" 
                                 data-placement="bottom" 
                                 data-original-title="<?php echo $val['tp_userDelete']; ?>">
                                     <i class="icon <?php echo $val['icon_userDelete'];?>"></i>
                                 </a>
+                                <?php endif; ?>
                             </td>
                             <td class="text-center">
                                 <a href="#" class="shortcut-button btn btn-icon mx-1 fuse-ripple-ready" data-toggle="tooltip" 
@@ -96,8 +139,8 @@
                                     <i class="icon <?php echo $val['icon_userType'];?>"></i>
                                 </a>
                             </td>
-                            <td><?php echo $val['nick_name']; ?></td>
                             <td><?php echo $val['firstName']; ?></td>
+                            <td><?php echo $val['middleName']; ?></td>
                             <td><?php echo $val['lastName']; ?></td>
                             <td class="text-center">
                                 <?php echo $val['status']; ?>
@@ -119,88 +162,13 @@
                         <?php endforeach; ?>
                         <?php endif; ?>
                         
-
-                        
                     </tbody>
                 </table>
 
-                <script type="text/javascript">
-                    $('#listusers-data-table').DataTable(
-                    {
-                        responsive: true,
-                        dom         : 'rtip',
-
-                        columnDefs  : [
-                            { "orderable": false, "targets": 0 },
-                            { "orderable": false, "targets": 1 },
-                            { "orderable": false, "targets": 7 },
-                            { "orderable": false, "targets": 8 },                  
-                            {
-                                targets   : 5,
-                                filterable: false,
-                                render    : function (data, type)
-                                {
-                                    if ( type === 'display' )
-                                    {
-                                        if ( data === 'A' )
-                                        {
-                                            return '<i class="icon-checkbox-marked-circle text-success"></i>';
-                                        }
-
-                                        return '<i class="icon-cancel text-danger"></i>';
-                                    }
-
-                                    if ( type === 'filter' )
-                                    {
-                                        if ( data )
-                                        {
-                                            return '1';
-                                        }
-
-                                        return '0';
-                                    }
-
-                                    return data;
-                                }
-                            },
-                            {
-                                // Target the actions column
-                                targets           : 7,
-                                responsivePriority: 1,
-                                filterable        : false,
-                                sortable          : false
-                            }
-                        ],
-                        initComplete: function ()
-                {
-                    var api = this.api(),
-                        searchBox = $('#products-search-input');
-
-                    // Bind an external input as a table wide search box
-                    if ( searchBox.length > 0 )
-                    {
-                        searchBox.on('keyup', function (event)
-                        {
-                            api.search(event.target.value).draw();
-                        });
-                    }
-                },
-                        lengthMenu  : [10, 20, 30, 50, 100],
-                        pageLength  : 10,
-                        scrollY     : 'auto',
-                        scrollX     : false,
-                        responsive  : true,
-                        autoWidth   : false,
-                        "aaSorting": [[ 4, "asc" ]],
-                        "bDestroy": true
-                    }
-                );
-                </script>
-
                 </div></div>
       
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
