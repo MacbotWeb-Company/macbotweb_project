@@ -19,11 +19,15 @@ class setting_usersController extends Controller
 		$this->rs_UserSessioninfo = $this->_usersInfo->getUsersInfo(
 			$this->_sess_client, 
 			$this->_sess_user);
+
+		// CARGA LIBRERIAS JS PARA TODA LAS CLASES
+		$this->_view->setLibraryJs(array('bootbox.min')); // ALERTAS BOOTBOX
 		
 	}
 
 	public function index()
 	{
+		$this->_view->setJs(array('report_users')); // CARGA LIBRERIAS JS
 
 		$this->_view->icon	= 'icon-format-list-checks';
 		$this->_view->title	= 'List of Users';
@@ -36,12 +40,14 @@ class setting_usersController extends Controller
 				$icon 	 = $this->getIconByLevel($val['acronym']);
 				$tooltip = $this->getTooltipByLevel($val['acronym']);
 
-                $rs_userList[$val['id_user']]['nick_name']	= $val['nick_name'];
+                $rs_userList[$val['id_user']]['nickName']	= $val['nick_name'];
                 $rs_userList[$val['id_user']]['id_user'] 	= $val['id_user'];
                 $rs_userList[$val['id_user']]['email'] 		= $val['email'];
                 $rs_userList[$val['id_user']]['firstName']	= $val['first_name'];
+                $rs_userList[$val['id_user']]['middleName']	= $val['middle_name'];
                 $rs_userList[$val['id_user']]['lastName']	= $val['last_name'];
 				$rs_userList[$val['id_user']]['status']		= $val['status'];
+				$rs_userList[$val['id_user']]['type']		= $val['acronym'];
 
                 $rs_userList[$val['id_user']]['icon_userType']		= $icon['type'];
                 $rs_userList[$val['id_user']]['icon_userDelete']	= $icon['delete'];
@@ -61,7 +67,7 @@ class setting_usersController extends Controller
 
 	public function add_setting_users()
 	{
-		$this->_view->setJs(array('add_users'));
+		$this->_view->setJs(array('add_users')); // CARGA LIBRERIAS JS
 		$this->_view->icon	= 'icon-account-plus';
 		$this->_view->title	= 'Add Users';
 
