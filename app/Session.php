@@ -110,7 +110,7 @@ class Session
 	{
 		if(!Session::get('authentication'))
 		{
-			header('location: '. BASE_URL . 'error/access/5050');
+			header('location: '. BASE_URL . 'error/access/401');
 			exit();
 		}
 		
@@ -132,7 +132,7 @@ class Session
 			}
 		}
 		
-		header('location: '. BASE_URL . 'error/access/5050');
+		header('location: '. BASE_URL . 'error/access/401');
 		exit();
 
 	}
