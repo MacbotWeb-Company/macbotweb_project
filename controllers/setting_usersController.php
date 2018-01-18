@@ -72,14 +72,20 @@ class setting_usersController extends Controller
 			$username = $this->getText('mb_User_1') . "@" .$this->getText('mb_User_2');
 			if(!$this->getText('mb_FirstName'))
 			{
-				$this->_view->error = 'The first name is required';
+				$this->_view->error = 'Please enter a first name';
+				$this->_view->render('add_setting_users', 'add_users');
+				exit();
+			}
+			if(!$this->getText('mb_MiddleName'))
+			{
+				$this->_view->error = 'Please enter a middle name';
 				$this->_view->render('add_setting_users', 'add_users');
 				exit();
 			}
 			
 			if(!$this->getText('mb_LastName'))
 			{
-				$this->_view->error = 'The last name is required';
+				$this->_view->error = 'Please enter a last name';
 				$this->_view->render('add_setting_users', 'add_users');
 				exit();
 			}
@@ -92,20 +98,20 @@ class setting_usersController extends Controller
 			}
 			if(!$this->getAlphaNum('mb_Password'))
 			{
-				$this->_view->error = 'The password is required';
+				$this->_view->error = 'Please provide a password';
 				$this->_view->render('add_setting_users', 'add_users');
 				exit();
 			}
 			if(!$this->getAlphaNum('mb_PasswordConfirmation'))
 			{
-				$this->_view->error = 'The password confirmation is required';
+				$this->_view->error = 'Please provide a password';
 				$this->_view->render('add_setting_users', 'add_users');
 				exit();
 			}
 
 			if($this->getAlphaNum('mb_Password') != $this->getAlphaNum('mb_PasswordConfirmation'))
 			{
-				$this->_view->error = 'The password not match';
+				$this->_view->error = 'Please enter the same password as above';
 				$this->_view->render('add_setting_users', 'add_users');
 				exit();
 			}
@@ -114,7 +120,7 @@ class setting_usersController extends Controller
 			$this->_usersSett->insertUser(
 				$username, 
 				md5($this->getAlphaNum('mb_Password')), 
-				NULL, 
+				$this->getText('mb_FirstName'), 
 				$this->getText('mb_FirstName'), 
 				$this->getText('mb_MiddleName'), 
 				$this->getText('mb_LastName'), 

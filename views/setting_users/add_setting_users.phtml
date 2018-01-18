@@ -1,9 +1,22 @@
+    <style type="text/css">
+        .error{
+            top: -6px !important;
+            text-transform: uppercase;
+            font-size: 1rem !important;
+            margin-left: 4px !important;
+        }
+        input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+            background-color: #fff;
+            background-image: none;
+            color: rgb(0, 0, 0);
+        }
+    </style>
     <!-- CONTENT -->
     <div class="page-content">
         <div class="tab-content">
             <div class="tab-pane fade show active" id="basic-info-tab-pane" role="tabpanel" aria-labelledby="basic-info-tab">
                 <div class="card p-12">
-                    <form  method="post" action="" id="needs-validation" novalidate>
+                    <form  method="post" action="" id="signupFormUsers" name="signupFormUsers" novalidate>
                     <input type="hidden" value="1" name="send">
                         <div class="row">
                             <div class="col-md-3">
@@ -23,27 +36,27 @@
                             <div class="col-md-9">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>" required>
+                                        <input type="text" class="form-control" name="mb_FirstName" id="mb_FirstName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_FirstName'];  ?>" >
                                         <label for="mb_FirstName" class="col-form-label mb_input">
                                         <i class="icon s-4 icon-account"></i> Fisrt Name
                                         </label>
-                                        <div class="invalid-feedback">
-                                            Please provide a valid first name.
-                                        </div>
+                                        
+
+                                        
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input type="text" class="form-control" name="mb_MiddleName" id="mb_MiddleName" placeholder=""  value="<?php if(isset($this->datos)) echo $this->datos['mb_MiddleName'];  ?>">
                                         <label for="mb_MiddleName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Middle Name
                                         </label>
+                                        
+                                       
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_LastName'];  ?>" required>
+                                        <input type="text" class="form-control" name="mb_LastName" id="mb_LastName" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_LastName'];  ?>">
                                         <label for="mb_LastName" class="col-form-label mb_input"><i class="icon s-4 icon-account"></i> Last Name</label>
-                                        <div class="invalid-feedback">
-                                            Please provide a valid last name.
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 
@@ -59,11 +72,11 @@
                                                 </div>
                                            </div>
                                            <div class="form-group col-md-6">
-                                                <label class="sr-only" for="mb_User_2">Username</label>
                                                 <div class="input-group mb-2 mb-sm-0">
                                                     <div class="input-group-addon">@</div>
+                                                    <label class="sr-only" for="mb_User_2">Username</label>
                                                     <input type="text" class="form-control" name="mb_User_2" id="mb_User_2"
-                                                           placeholder="Username" aria-describedby="passwordHelpBlock" value="<?php if(isset($this->datos)) echo $this->datos['mb_User_2'];  ?>">
+                                                           placeholder="macbotweb.com" aria-describedby="passwordHelpBlock" value="<?php if(isset($this->datos)) echo $this->datos['mb_User_2'];  ?>">
                                                 </div>
                                             </div>
                                             <small id="passwordHelpBlock" class="form-text text-muted mb-fixed-small-user">
@@ -135,21 +148,21 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <input type="text" class="form-control" name="mb_Mobile" id="mb_Mobile" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_Mobile'];  ?>">
-                                                    <label for="mb_Mobile" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-android"></i> Mobile Phone
+                                                    <label for="mb_Mobile" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-android"></i> Mobile Phone (OPTIONAL)
                                                     </label>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <input type="text" class="form-control" name="mb_Phone" id="mb_Phone" placeholder="" value="<?php if(isset($this->datos)) echo $this->datos['mb_Phone'];  ?>">
-                                                    <label for="mb_Phone" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-basic"></i> Work Phone</label>
+                                                    <label for="mb_Phone" class="col-form-label mb_input"><i class="icon s-4 icon-cellphone-basic"></i> Work Phone (OPTIONAL)</label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="mb_Address" id="mb_Address" placeholder="1234 Main St" value="<?php if(isset($this->datos)) echo $this->datos['mb_Address'];  ?>">
-                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address</label>
+                                                <label for="mb_Address" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address (OPTIONAL)</label>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="mb_Address2" id="mb_Address2" placeholder="12345 Main St" value="<?php if(isset($this->datos)) echo $this->datos['mb_Address2'];  ?>">
-                                                <label for="mb_Address2" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address2</label>
+                                                <label for="mb_Address2" class="col-form-label mb_input"><i class="icon s-4 icon-home-variant"></i> Address2 (OPTIONAL)</label>
                                             </div>
                                         </p>
                                     </div>
@@ -183,9 +196,12 @@
                                         <p>
                                             <div class="form-row">
                                             <small id="passwordHelpBlock" class="form-text text-muted">
-                                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+                                                    Your password must be 6-10 characters long, contain letters and numbers, and must not contain
                                                     spaces, special characters, or emoji.
-                                                </small>
+                                            </small>
+                                            <div class="form-group col-md-12">
+                                                   
+                                            </div>
                                             <!--<label for="inputPassword5">Password</label>
                                                 <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">-->
                                                 
