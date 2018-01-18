@@ -4,11 +4,13 @@ class View
 {
 	private $_controller;
 	private $_js;
+	private $_libraryJS;
 
 	public function __construct(Request $petition)
 	{
 		$this->_controller 	= $petition->getController();
 		$this->_js			= array();
+		$this->_libraryJS	= array();
 	}
 
 	public function render($view, $item = false, $item1 = false)
@@ -128,6 +130,13 @@ class View
 			$js = $this->_js;
 		}
 
+		# DECLARAR LAS LIBRERIAS LOCALES JS EN ARCHIVOS PHP
+		$library_js = array();
+		if(count($this->_libraryJS))
+		{
+			$library_js = $this->_libraryJS;
+		}
+
 
 		# ARREGLO DE ARCHHIVOS STATICOS CSS, JS, IMG
 		$_layoutParams = array(
@@ -136,7 +145,8 @@ class View
 			'root_js'	=> BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/js/',
 			'menu_left' => $menu_left,
 			'menu_rigth'=> $menu_rigth,
-			'js'		=> $js
+			'js'		=> $js,
+			'libraryjs'	=> $library_js
 		);
 
 
@@ -180,6 +190,22 @@ class View
 		else
 		{
 			throw new Exception("Error Processing JS", 1);
+			
+		}
+	}
+
+	public function setLibraryJs(array $library_js)
+	{
+		if(is_array($library_js) && count($library_js))
+		{
+			for($i=0; $i < count($library_js); $i ++)
+			{
+				$this->_js[] = BASE_URL . 'public/js/' . $library_js[$i] . '.js';
+			}
+		}
+		else
+		{
+			throw new Exception("Error Processing Library JS", 1);
 			
 		}
 	}
